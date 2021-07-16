@@ -1,9 +1,11 @@
 package viaggi.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,9 +16,10 @@ public class Prenotazione {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private int persone;
-	
+	@OneToOne
 	private Viaggio viaggio;
-	private Utente utenteReferente;
+	@OneToOne
+	private Utente utenteId;
 	public int getId() {
 		return id;
 	}
@@ -35,11 +38,11 @@ public class Prenotazione {
 	public void setViaggio(Viaggio viaggio) {
 		this.viaggio = viaggio;
 	}
-	public Utente getUtenteReferente() {
-		return utenteReferente;
+	public Utente getUtenteId() {
+		return utenteId;
 	}
-	public void setUtenteReferente(Utente utenteReferente) {
-		this.utenteReferente = utenteReferente;
+	public void setUtenteId(Utente utenteReferente) {
+		this.utenteId = utenteReferente;
 	}
 	@Override
 	public String toString() {

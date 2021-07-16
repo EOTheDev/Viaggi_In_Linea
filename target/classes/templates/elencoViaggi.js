@@ -18,6 +18,7 @@ window.addEventListener("load",carica, false);
 
 function carica() {
 
+    console.log("sto caricando");
     for (var index = 0; index < viaggi.length; index++) {
         var element = viaggi[index];
 
@@ -50,6 +51,7 @@ function carica() {
 
         var btn=document.createElement("button");
         btn.setAttribute("class", "btn-primary");
+        btn.addEventListener("click", rilancia, false);
         btn.innerHTML="Prenota";
   
         sideDiv.appendChild(btn);
@@ -67,8 +69,19 @@ function carica() {
 
         viaggiHTML.appendChild(travelHTML);
         
+        function rilancia(){
+            console.log("sto rilanciando");
+            $.ajax({
+                type:"post",
+                url:"/api/viaggi/acquisto",
+                data: viaggi[index],
+                success:null,
+                dataType:"html"
+            })
+        }
     }//fine for
-
+    
+    
 }//fine funzione
 
    

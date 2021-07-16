@@ -18,7 +18,7 @@ public class Utente {
 	
 	private String nome,cognome,password,email,cartaCredito;
 	
-	List<Prenotazione> viaggio;
+//	List<Prenotazione> viaggio;
 
 	public int getId() {
 		return id;
