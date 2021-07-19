@@ -17,7 +17,7 @@
             <div class="testo">
                 <div class="title">
                     <h2>
-                        <span class="destinazione text-muted" th:text="${viaggio.destinazione}">Questo viaggio</span>-<span class="titoloViaggio ">L'amore della vita</span>
+                        <span class="destinazione text-muted" th:text="${viaggio.destinazione}">Questo viaggio</span>-<span class="titoloViaggio" th:text="${viaggio.titolo}">L'amore della vita</span>
                     </h2>
                 </div>
                 <div class="descrizioneViaggio">
@@ -74,7 +74,7 @@
             </div>
             <div class="side">
                 <img src="Sardegna.jpg" th:src="@{${viaggio.descrizione}}" alt="" >
-                <div class="lead" ><span id="prezzoAPersona">1.000</span> € a persona</div>
+                <div class="lead" ><span id="prezzoAPersona" th:text="${viaggio.prezzo}">1.000</span> € a persona</div>
                 
                 <form th:action="@{http://localhost:8080/viaggi/annulla}" method="post">
                     <button class="btn-danger" id="annulla">Annulla</button>
@@ -84,5 +84,29 @@
         </div>
     </main>
     <footer></footer>
+    <script th:inline="javascript">
+	/*<![CDATA[*/
+
+    var impSingolo = /*[[${viaggio.prezzo}]]*/ 'default';
+	var tot= document.getElementById("impDef");
+	var persone= document.getElementById("persone");
+	persone.value=1;
+	tot.innerHTML=parseInt(persone.value)*impSingolo;
+	persone.addEventListener("keyup", calcolaTot, false);
+    console.log(impSingolo);
+    function calcolaTot() {
+		if ((persone.value=="")||(persone.value<0)){
+			tot.innerHTML=0;
+		} else {
+			console.log(persone.value);
+			console.log(impSingolo);
+			console.log(persone.value+impSingolo);
+
+			tot.innerHTML=parseInt(persone.value)*impSingolo;
+		}
+    	
+    }
+	/*]]>*/
+	</script>
 </body>
 </html>
