@@ -33,8 +33,8 @@ public class ViaggioCtrl {
 		
 		model.addAttribute("viaggi", vs.findAllTrips());
 		
-//		return "elencoViaggi";
-		return "prova";
+		return "elencoViaggi";
+//		return "prova";
 	}
 
 }
