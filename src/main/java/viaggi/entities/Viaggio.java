@@ -13,7 +13,9 @@ public class Viaggio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String destinazione, titolo, descrizione;
+	private String destinazione;
+	private String titolo;
+	private String descrizione;
 	private int numeroDiGiorni;
 	private double prezzo;
 	

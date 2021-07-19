@@ -26,7 +26,8 @@ public class ViaggiServiceImpl implements ViaggiService {
 
 	@Override
 	public List<Viaggio> findTripsByDestination(String destinazione) {
-		return repo.findByDestination(destinazione);
+		return repo.findByDestinazione(destinazione);
+//		return null;
 	}
 
 	@Override

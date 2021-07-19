@@ -18,7 +18,7 @@ import viaggi.service.ViaggiService;
 @RequestMapping("/api/viaggi")
 public class ViaggioCtrl {
 	
-	@Autowired
+	@Autowired 
 	private ViaggiService vs;
 	
 	@PostMapping(value = "/acquisto", consumes = "application/json")
