@@ -16,7 +16,7 @@ public class Viaggio {
 	private String destinazione;
 	private String titolo;
 	private String descrizione;
-	private int numeroDiGiorni;
+	private int numeroGiorni;
 	private double prezzo;
 	
 	
@@ -44,11 +44,11 @@ public class Viaggio {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-	public int getNumeroDiGiorni() {
-		return numeroDiGiorni;
+	public int getNumeroGiorni() {
+		return numeroGiorni;
 	}
-	public void setNumeroDiGiorni(int numeroDiGiorni) {
-		this.numeroDiGiorni = numeroDiGiorni;
+	public void setNumeroGiorni(int numeroDiGiorni) {
+		this.numeroGiorni = numeroDiGiorni;
 	}
 	public double getPrezzo() {
 		return prezzo;
@@ -59,7 +59,7 @@ public class Viaggio {
 	@Override
 	public String toString() {
 		return "Viaggio [ destinazione=" + destinazione + " - " + titolo + ", descrizione ="
-				+ descrizione + ", numeroDiGiorni=" + numeroDiGiorni + ", prezzo=" + prezzo + "]";
+				+ descrizione + ", numeroDiGiorni=" + numeroGiorni + ", prezzo=" + prezzo + "]";
 	}
 	
 	
