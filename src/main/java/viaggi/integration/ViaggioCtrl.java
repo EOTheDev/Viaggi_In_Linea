@@ -24,7 +24,6 @@ public class ViaggioCtrl {
 	@PostMapping(value = "/acquisto", consumes = "application/json")
 	public String acq(@RequestBody Viaggio v, Model m) {
 		m.addAttribute("viaggio", v);
-
 		return "acquistoViaggio";
 	}
 

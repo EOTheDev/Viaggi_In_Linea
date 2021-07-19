@@ -16,6 +16,8 @@ public class Viaggio {
 	private String destinazione, titolo, descrizione;
 	private int numeroDiGiorni;
 	private double prezzo;
+	
+	
 	public int getId() {
 		return id;
 	}
