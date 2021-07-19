@@ -1,28 +1,29 @@
 
-var viaggio={
-    destinazione:"Bahamas",
-    titolo:"Vacanza da scimmie",
-    notti:"4",
-}
-var viaggio2={
-    destinazione:"Parigi",
-    titolo:"Weekend romantico",
-    notti:"3",
+// var viaggio={
+//     destinazione:"Bahamas",
+//     titolo:"Vacanza da scimmie",
+//     notti:"4",
+// }
+// var viaggio2={
+//     destinazione:"Parigi",
+//     titolo:"Weekend romantico",
+//     notti:"3",
 
-}
+// }
 
-var viaggi= [viaggio, viaggio2];
+// var viaggi= [viaggio, viaggio2];
 var viaggiHTML=document.getElementById("travelsContainer");
 
-window.addEventListener("load",carica, false);
+window.addEventListener("load", carica, false);
 
 function carica() {
 
-    for (var index = 0; index < viaggi.length; index++) {
-        var element = viaggi[index];
+    // for (var index = 0; index < viaggi.length; index++) {
+    //     var element = viaggi[index];
 
         var travelHTML=document.createElement("div");
         travelHTML.setAttribute("class", "travel");
+        travelHTML.setAttribute("th:each", "viaggio:${viaggi}");
 
         var textHTML=document.createElement("div");
         textHTML.setAttribute("class", "testo");
@@ -34,11 +35,13 @@ function carica() {
 
         var titleSpan=document.createElement("span");
         titleSpan.setAttribute("class", "destinazione text-muted");
-        titleSpan.innerHTML=element.destinazione + " - ";
+        titleSpan.setAttribute("th:text", "${viaggio.destinazione}");
+
+     //   titleSpan.innerHTML=element.destinazione + " - ";
 
         var tripSpan=document.createElement("span");
         tripSpan.setAttribute("class", "titoloViaggio");
-        tripSpan.innerHTML=element.titolo;
+        //tripSpan.innerHTML=element.titolo;
 
         var tripDescription=document.createElement("div");
         tripDescription.setAttribute("class", "descrizioneViaggio");
@@ -67,7 +70,7 @@ function carica() {
 
         viaggiHTML.appendChild(travelHTML);
         
-    }//fine for
+    // }//fine for
 
 }//fine funzione
 

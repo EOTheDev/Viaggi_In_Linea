@@ -15,7 +15,7 @@ import viaggi.entities.Viaggio;
 import viaggi.service.ViaggiService;
 
 @Controller
-@RequestMapping("/api/viaggi")
+@RequestMapping("/viaggi")
 public class ViaggioCtrl {
 	
 	@Autowired 
