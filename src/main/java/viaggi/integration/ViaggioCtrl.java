@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import viaggi.entities.Viaggio;
 //import viaggi.entities.Viaggio;
@@ -21,10 +23,11 @@ public class ViaggioCtrl {
 	@Autowired 
 	private ViaggiService vs;
 	
-	@PostMapping(value = "/acquisto", consumes = "application/json")
-	public String acq(@RequestBody Viaggio v, Model m) {
-		m.addAttribute("viaggio", v);
-		return "acquistoViaggio";
+	@PostMapping(value = "/acquisto")
+	public ModelAndView acq(Model m, @RequestParam int id) {
+		m.addAttribute("viaggio", vs.findTripById(id));
+		System.out.println("sono in acquisto");
+		return new ModelAndView("av");
 	}
 
 
@@ -33,7 +36,7 @@ public class ViaggioCtrl {
 		
 		model.addAttribute("viaggi", vs.findAllTrips());
 		
-		return "elencoViaggi";
+		return "viaggi";
 //		return "prova";
 	}
 
