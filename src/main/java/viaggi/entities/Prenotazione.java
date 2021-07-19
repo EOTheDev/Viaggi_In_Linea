@@ -19,7 +19,8 @@ public class Prenotazione {
 	@OneToOne
 	private Viaggio viaggio;
 	@OneToOne
-	private Utente utenteId;
+	private Utente utente;
+	
 	public int getId() {
 		return id;
 	}
@@ -38,11 +39,11 @@ public class Prenotazione {
 	public void setViaggio(Viaggio viaggio) {
 		this.viaggio = viaggio;
 	}
-	public Utente getUtenteId() {
-		return utenteId;
+	public Utente getUtente() {
+		return utente;
 	}
-	public void setUtenteId(Utente utenteReferente) {
-		this.utenteId = utenteReferente;
+	public void setUtente(Utente utenteReferente) {
+		this.utente = utenteReferente;
 	}
 	@Override
 	public String toString() {

@@ -8,10 +8,11 @@ import viaggi.entities.Utente;
 public interface UtenteService {
 	
 	List<Utente> findAllUsers();
+	Utente findUserByEmail(String email);
 	Utente findUserById(int id);
 	void deleteUserById(int id);
-	void updateUser(Utente user);
-	void addUser(Utente user);
+	Utente updateUser(Utente user);
+	Utente addUser(Utente user);
 
 }
 

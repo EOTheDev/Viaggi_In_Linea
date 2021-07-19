@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +13,7 @@
         <h1 class="titoloPagina">Ricevuta di Acquisto</h1>
     </header>    
     <main>
-        <h2>Le confermiamo la prenotazione con numero <span id="idPrenotazione">X1A13B439</span></h2>
+        <h2>Le confermiamo la prenotazione con numero <span id="idPrenotazione" th:text="${prenotazione.id}">X1A13B439</span></h2>
         <table class="table">
             <tr>
                 <th>Referente</th>
@@ -24,11 +24,11 @@
                 <th>Totale</th>
             </tr>
             <tr>
-                <td><span id="nome">Mario</span> <span id="cognome">Rossi</span></td>
-                <td><span id="destinazione">Lisbona</span></td>
-                <td><span id="Persone">3</span></td>
-                <td><span id="notti">5</span></td>
-                <td><span id="tariffaSingola">1000</span></td>
+                <td><span id="nome" th:text="${utente.nome}">Mario</span> <span id="cognome" th:text="${utente.cognome}">Rossi</span></td>
+                <td><span id="destinazione" th:text="${viaggio.destinazione}">Lisbona</span></td>
+                <td th:text="${prenotazione.persone}"><span id="Persone">3</span></td>
+                <td th:text="${viaggio.numeroGiorni}"><span id="notti">5</span></td>
+                <td th:text="${viaggio.prezzo}"><span id="tariffaSingola">1000</span></td>
                 <td><b><span id="tariffaDefinitiva">3600</span> €</b></td>
             </tr>
         </table>
@@ -39,8 +39,12 @@
                     Labore saepe vitae repellat cum fugiat earum nam totam in alias impedit sed quos consequuntur vel itaque, doloremque tempora eius non qui, aliquid sapiente! Illo impedit neque nemo possimus minus or quam optio.
                 </p>
                 <div class="side">  
-                    <img class="col-4" src="qrcode.png" alt="" id="qr">
-                    <a href="elencoViaggi.html"><button type="button" class="btn btn-primary">Prenota un altro viaggio</button></a>
+      
+                   <img class="col-4" src="qrcode.png" alt="" id="qr">
+                   <form th:action="@{http://localhost:8080/viaggi}" method="get">
+                    	<input type="hidden" name="id">
+                    	<input type="submit" class="btn-primary" value="Prenota un altro viaggio"></input>
+        			</form>
                 </div>
             </div>
         

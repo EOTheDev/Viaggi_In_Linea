@@ -16,7 +16,10 @@
         <p class="lead">
             Gentile cliente, Le confermiamo che abbiamo cancellato i dati del suo ordine!
         </p>
-        <a href="acquistoViaggio.html"><button class="btn btn-primary">Torna all'elenco dei viaggi</button></a>
+        <form th:action="@{http://localhost:8080/viaggi}" method="get">
+                    	<input type="hidden" name="id">
+                    	<input type="submit" class="btn-primary" value="Torna ai viaggi"></input>
+        </form>
     </main>
     <footer></footer>
 </body>

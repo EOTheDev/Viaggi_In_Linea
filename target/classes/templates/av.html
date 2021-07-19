@@ -24,21 +24,21 @@
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem saepe officiis ad labore, dolorem fugit dolores optio magni exercitationem odit necessitatibus quasi modi fuga reprehenderit, quod sequi? Assumenda, dolores eveniet.
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit perspiciatis delectus cumque totam sit id quasi ut culpa voluptates. Tempora harum aut ratione dolorem pariatur! Earum ducimus perferendis aut deleniti.
                 </div>
-                <form th:action="@{/viaggi/prenotazione}" id="costruisciPrenotazione">
+                <form th:action="@{/viaggi/prenotazione}" method="post" id="costruisciPrenotazione" th:object="${prenotazione}">
                     <div class="row">
                         <div class="casellaForm">
                             <label for="nome">Nome</label>
-                            <input type="text" id="nome">
+                            <input type="text" name="nome" id="nome">
                         </div>
                         <div class="casellaForm">
                             <label for="cognome">Cognome</label>
-                            <input type="text" id="cognome">
+                            <input type="text" name="cognome" id="cognome">
                         </div>
                     </div>
                     <div class="row">
                         <div class="casellaForm email">
                             <label for="email">Email</label>
-                            <input type="email" id="email">
+                            <input type="email" name="email" id="email">
                         </div>
                     </div>
                     <div class="row">
@@ -53,28 +53,32 @@
                         </div>
                         <div class="casellaForm">
                             <label for="cartaCredito">Numero della carta di credito</label>
-                            <input type="number" id="cartaCredito">
+                            <input type="number" name="cartaCredito" id="cartaCredito">
                         </div>
                     </div>
                     <div class="row flex-hr">
                         <div class="casellaForm">
                             <label for="persone">Numero di persone</label>
-                            <input type="number" id="persone">
+                            <input type="number" id="persone" name="persone" >
                         </div>
                         <div class="importo">
                             <label for="impDef">Totale</label>
                             <h4 class="display-4"><span id="impDef">3600</span>€</h4>
                         </div>
                     </div>
+                 
                     
+                    <input type="hidden" name="idViaggio" th:value="${viaggio.id}">
+                    <input type="submit" class="btn-success" value="Acquista" id="acquista"></input>
                 </form>
             </div>
             <div class="side">
-                <img src="Sardegna.jpg" alt="">
+                <img src="Sardegna.jpg" th:src="@{${viaggio.descrizione}}" alt="" >
                 <div class="lead" ><span id="prezzoAPersona">1.000</span> € a persona</div>
-                <!-- <div class="btns"> -->
+                
+                <form th:action="@{http://localhost:8080/viaggi/annulla}" method="post">
                     <button class="btn-danger" id="annulla">Annulla</button>
-                    <button class="btn-success" id="acquista">Acquista</button>
+                </form>
                 <!-- </div> -->
             </div>
         </div>

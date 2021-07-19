@@ -30,13 +30,19 @@ public class UtenteServiceImpl implements UtenteService {
 		}
 
 		@Override
-		public void updateUser(Utente user) {
-			repo.findAll().set(user.getId(), user);
+		public Utente updateUser(Utente user) {
+			return repo.save(user);
 		}
 
 		@Override
-		public void addUser(Utente user) {
-			repo.findAll().add(user);
+		public Utente addUser(Utente user) {
+			return repo.save(user);
+		}
+
+		@Override
+		public Utente findUserByEmail(String email) {
+			// TODO Auto-generated method stub
+			return null;
 		}
 
 	}
